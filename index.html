@@ -4,6 +4,7 @@
     <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#00ff00">
 <link rel="icon" href="icon.png" type="image/png">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>wifi room</title>
     
@@ -11,59 +12,78 @@
 
   </head>
   <style>
+  body {
+    background-color: #000000;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 20px; /* قللنا البادينج علشان الموبايل */
+    margin: 0;
+  }
 
+  h1 {
+    color: #ffffff;
+    font-size: 24px;
+  }
 
-    
-    body {
-      background-color: #000000;
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      
-    }
+  .button,
+  .button2 {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+    width: 90%; /* خلى الزرار ياخد عرض مناسب للموبايل */
+    max-width: 300px;
+  }
+
+  .button {
+    background-color: #007BFF;
+  }
+
+  .button:hover {
+    background-color: #0056b3;
+    transition: background-color 0.5s ease;
+    box-shadow: #0069da 0px 0px 25px;
+  }
+
+  .button:active {
+    background-color: #004085;
+    box-shadow: #0056b3 0px 0px 25px;
+  }
+
+  .button2 {
+    background-color: #28a745;
+    position: relative;
+    top: 25px;
+  }
+
+  .button2:hover {
+    background-color: #218838;
+    transition: background-color 0.5s ease;
+    box-shadow: #1e7e34 0px 0px 25px;
+  }
+
+  .button2:active {
+    background-color: #155724;
+    box-shadow: #1e7e34 0px 0px 25px;
+  }
+
+  /* ميديا كويري للموبايل */
+  @media (max-width: 600px) {
     h1 {
-      color: #ffffff;
+      font-size: 20px;
     }
-    .button {
-      padding: 10px 20px;
-      font-size: 16px;
-      color: white;
-      background-color: #007BFF;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .button:hover {
 
-      background-color: #0056b3;
-      transition: background-color 0.5s ease;
-      box-shadow: #0069da 0px 0px 55px;
+    .button,
+    .button2 {
+      font-size: 14px;
+      padding: 12px;
     }
-    .button:active {
-      background-color: #004085;
-      box-shadow: #0056b3 0px 0px 55px;
-    }
-.button2{
-      padding: 10px 20px;
-      font-size: 16px;
-      color: white;
-      background-color: #28a745;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      top: 25px;
-      position: relative;
-    }
-    .button2:hover {
-      background-color: #218838;
-      transition: background-color 0.5s ease;
-      box-shadow: #1e7e34 0px 0px 55px;
-    }
-    .button2:active {
-      background-color: #155724;
-      box-shadow: #1e7e34 0px 0px 55px;
-}
-   </style>
+  }
+</style>
+
   <body>
     <h1>Welcome to the WiFi Room</h1>
      
@@ -105,6 +125,17 @@
       .catch((err) => console.error("❌ SW Error:", err));
   }
 </script>
+
+
+
+
+    <script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('sw.js')
+      .then(() => console.log('Service Worker Registered'));
+  }
+</script>
+
   </body>
 
 
