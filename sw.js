@@ -1,12 +1,15 @@
-self.addEventListener('install', e => {
-  console.log('Service Worker: Installed');
+self.addEventListener('install', function(event) {
+  console.log('Service Worker installing.');
+  // تقدر تضيف ملفات للكاش هنا لو حبيت
+  self.skipWaiting(); // لو عايز يتفعل فورًا
 });
 
-self.addEventListener('activate', e => {
-  console.log('Service Worker: Activated');
-  e.waitUntil(self.clients.claim());
+self.addEventListener('activate', function(event) {
+  console.log('Service Worker activated.');
+  event.waitUntil(self.clients.claim());
 });
 
-self.addEventListener('fetch', e => {
-  e.respondWith(fetch(e.request));
+self.addEventListener('fetch', function(event) {
+  // حالياً مجرد بيرد بالطلب مباشرة، مفيش كاشينج
+  event.respondWith(fetch(event.request));
 });
